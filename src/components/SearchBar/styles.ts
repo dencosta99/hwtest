@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     position: "relative",
     justifyContent: "center",
   },
-  icon: {
+  searchIcon: {
     position: "absolute",
     left: 14,
     zIndex: 1,
@@ -28,6 +28,14 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     borderWidth: 1,
     borderColor: Colors.border,
+  },
+  inputWithClear: {
+    paddingRight: 40,
+  },
+  clearButton: {
+    position: "absolute",
+    right: 14,
+    zIndex: 1,
   },
 });
 
