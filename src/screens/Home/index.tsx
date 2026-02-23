@@ -40,6 +40,7 @@ const HomeScreen = ({ navigation }: Props): React.JSX.Element => {
   return (
     <HomeLayout
       users={filteredUsers}
+      hasUsers={!!users && users.length > 0}
       isLoading={isLoading}
       isError={isError}
       errorType={errorType}
