@@ -1,5 +1,6 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { FlatList, RefreshControl, View } from "react-native";
+import { FlatList, RefreshControl, Text, View } from "react-native";
 
 import type { User } from "@app-types/user";
 import { EmptyState } from "@components/EmptyState";
@@ -14,6 +15,7 @@ import { styles } from "./styles";
 
 interface HomeLayoutProps {
   users: User[] | null;
+  hasUsers: boolean;
   isLoading: boolean;
   isError: boolean;
   errorType: "network" | "api" | "decrypt" | "timeout" | null;
@@ -48,8 +50,26 @@ const SkeletonList = (): React.JSX.Element => (
   </View>
 );
 
+const SearchEmptyState = ({
+  query,
+}: {
+  query: string;
+}): React.JSX.Element => (
+  <View style={styles.searchEmpty}>
+    <Ionicons
+      name="search-outline"
+      size={40}
+      color={Colors.textTertiary}
+    />
+    <Text style={styles.searchEmptyText}>
+      No results for &quot;{query}&quot;
+    </Text>
+  </View>
+);
+
 const HomeLayout = ({
   users,
+  hasUsers,
   isLoading,
   isError,
   errorType,
@@ -98,7 +118,7 @@ const HomeLayout = ({
     );
   }
 
-  if (!users || users.length === 0) {
+  if (!hasUsers) {
     return (
       <View style={styles.container}>
         {header}
@@ -112,12 +132,13 @@ const HomeLayout = ({
       {header}
       <SearchBar value={searchQuery} onChangeText={onSearchChange} />
       <FlatList
-        data={users}
+        data={users ?? []}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
         getItemLayout={getItemLayout}
         contentContainerStyle={styles.listContent}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={<SearchEmptyState query={searchQuery} />}
         refreshControl={
           <RefreshControl
             refreshing={false}
