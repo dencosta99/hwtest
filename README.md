@@ -2,6 +2,25 @@
 
 Aplicativo mobile em React Native que consome uma API com dados criptografados em AES-256-GCM, realiza a descriptografia no dispositivo e exibe uma lista de 50 contatos com suporte offline.
 
+## Demo
+
+## iOS
+
+https://github.com/user-attachments/assets/587052ec-54d5-4e14-9ab4-62c0b88c9ef7
+
+# Offline mode iOS
+
+https://github.com/user-attachments/assets/90383a1e-a165-4a74-8264-72a58e6ecf46
+
+## Android
+
+https://github.com/user-attachments/assets/fcb74b2b-a98b-4c2f-b4ad-4f9d964ebc24
+
+# Offline mode Android
+
+https://github.com/user-attachments/assets/a6af01cf-bf5c-432d-ae95-227009f8e866
+
+
 ## Arquitetura
 
 O app segue uma arquitetura unidirecional em camadas:
