@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { Colors, Spacing } from "@config/theme";
+import { Colors, Fonts, Spacing } from "@config/theme";
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +22,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  searchEmpty: {
+    alignItems: "center",
+    paddingTop: 48,
+    gap: 12,
+  },
+  searchEmptyText: {
+    fontFamily: Fonts.medium,
+    fontSize: 15,
+    color: Colors.textTertiary,
+    textAlign: "center",
   },
 });
 
