@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { TextInput, View } from "react-native";
+import { Pressable, TextInput, View } from "react-native";
 
 import { Colors } from "@config/theme";
 
@@ -23,15 +23,28 @@ const SearchBar = ({
         name="search"
         size={18}
         color={Colors.textTertiary}
-        style={styles.icon}
+        style={styles.searchIcon}
       />
       <TextInput
-        style={styles.input}
+        style={[styles.input, value.length > 0 && styles.inputWithClear]}
         placeholder={placeholder}
         placeholderTextColor={Colors.textTertiary}
         value={value}
         onChangeText={onChangeText}
       />
+      {value.length > 0 && (
+        <Pressable
+          onPress={() => onChangeText("")}
+          style={styles.clearButton}
+          hitSlop={8}
+        >
+          <Ionicons
+            name="close-circle"
+            size={18}
+            color={Colors.textTertiary}
+          />
+        </Pressable>
+      )}
     </View>
   </View>
 );
